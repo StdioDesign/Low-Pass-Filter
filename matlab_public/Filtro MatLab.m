@@ -1,16 +1,16 @@
 %Sinais e Sistemas
-%Darlan Nascimento e Aloízio
-%Implementação de um filtro Faixa Baixa digital
+%Darlan Nascimento e AloÃ­zio
+%ImplementaÃ§Ã£o de um filtro Faixa Baixa digitalfffff
 %Junho de 2019
 clc;
 clear all;
 close all;
 
-%Carregando a música e coletando a Frequencia de Amostragem
+%Carregando a mÃºsica e coletando a Frequencia de Amostragem
 [x, fs] = audioread('carrie1.wav');
 %Pegando o Lado Direito
 audio = x(:, 1).';
-%Análise do Espectro no domínio da Frequência
+%AnÃ¡lise do Espectro no domÃ­nio da FrequÃªncia
 my_fft(audio, fs);
 %Processo de Filtragem
 %Dados===========================================
@@ -25,16 +25,16 @@ w = (0.54 - 0.46*cos((2*pi*n)/(M-1)))';%Janela Ideal
 hd = (wc/pi)*sinc((wc/pi)*(n-(M/2))); %Filtro Ideal
 
 %Calcular Filtro PB
-h=hd'.*w; %Multiplicação entre os vetores
+h=hd'.*w; %MultiplicaÃ§Ã£o entre os vetores
 
 %Filtragem do sinal
-audio_filtrado = conv(h,audio); %convolução entre os sinais
+audio_filtrado = conv(h,audio); %convoluÃ§Ã£o entre os sinais
 my_fft(audio_filtrado,fs); %Espectro de Frequencias do sinal filtrado
 
 %figure();
 %plot(audio_filtrado(1:length(t)));
-%title('Análise de Espectro2');
-%xlabel('Frequência(Hz)');
+%title('AnÃ¡lise de Espectro2');
+%xlabel('FrequÃªncia(Hz)');
 %ylabel ('Amplitude');
 
 
@@ -50,8 +50,8 @@ S = S(1:fc);
 
 figure();
 plot(frequency(1:fc),abs(S));
-title('Análise de Espectro');
-xlabel('Frequência(Hz)');
+title('AnÃ¡lise de Espectro');
+xlabel('FrequÃªncia(Hz)');
 ylabel ('Amplitude');
 grid on;
 
